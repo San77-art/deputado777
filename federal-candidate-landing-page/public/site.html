@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deputado Federal Ricardo Monteiro | Por um Brasil mais justo</title>
+  <meta name="description" content="Site oficial do candidato a Deputado Federal Ricardo Monteiro. Conheça suas propostas para Saúde, Educação e Segurança." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            marinho: {
+              50: '#eef3f9',
+              100: '#d4e1f0',
+              200: '#a9c3e1',
+              300: '#7da5d2',
+              400: '#5287c3',
+              500: '#2d6aaf',
+              600: '#1e4f85',
+              700: '#1a3f6b',
+              800: '#152f50',
+              900: '#0f2038',
+            },
+            verde: {
+              50: '#edf7f0',
+              100: '#d1edd8',
+              200: '#a3dbb1',
+              300: '#74c98a',
+              400: '#4ab868',
+              500: '#2d8a47',
+              600: '#236e38',
+              700: '#1c572d',
+              800: '#154122',
+              900: '#0e2c17',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #eef3f9; }
+    ::-webkit-scrollbar-thumb { background: #1e4f85; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #1a3f6b; }
+
+    /* Animações */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(45, 138, 71, 0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(45, 138, 71, 0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scroll-reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scroll-reveal-left.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .scroll-reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scroll-reveal-right.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .hero-animate {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .hero-animate-delay {
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+      opacity: 0;
+    }
+    .hero-photo-animate {
+      animation: fadeInRight 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 0.97) !important;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .nav-scrolled .nav-link { color: #152f50 !important; }
+    .nav-scrolled .nav-logo { color: #1e4f85 !important; }
+    .nav-scrolled .nav-cta {
+      background: #1e4f85 !important;
+      color: #fff !important;
+    }
+
+    .news-img-wrapper { overflow: hidden; }
+    .news-img-wrapper img {
+      transition: transform 0.5s ease;
+    }
+    .news-img-wrapper:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-ring {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+  <!-- ============================== -->
+  <!--         NAVEGAÇÃO              -->
+  <!-- ============================== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#inicio" class="nav-logo flex items-center gap-3 text-white font-bold text-xl tracking-tight transition-colors duration-300">
+          <div class="w-10 h-10 bg-verde-500 rounded-lg flex items-center justify-center text-white font-serif font-bold text-lg">
+            RM
+          </div>
+          <span class="hidden sm:inline">Ricardo Monteiro</span>
+        </a>
+
+        <!-- Links Desktop -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#transparencia" class="nav-link text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300">Transparência</a>
+          <a href="#propostas" class="nav-link text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300">Propostas</a>
+          <a href="#sobre" class="nav-link text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300">Sobre</a>
+          <a href="#noticias" class="nav-link text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300">Notícias</a>
+          <a href="#contato" class="nav-cta inline-flex items-center gap-2 bg-verde-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-verde-600 transition-all duration-300">
+            <i class="fa-solid fa-envelope text-xs"></i>
+            Contato
+          </a>
+        </div>
+
+        <!-- Botão Mobile -->
+        <button id="mobile-btn" class="md:hidden text-white text-2xl transition-colors duration-300" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="pb-4 flex flex-col gap-2">
+          <a href="#transparencia" class="nav-link text-white/90 hover:text-white block px-4 py-3 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Transparência</a>
+          <a href="#propostas" class="nav-link text-white/90 hover:text-white block px-4 py-3 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Propostas</a>
+          <a href="#sobre" class="nav-link text-white/90 hover:text-white block px-4 py-3 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Sobre</a>
+          <a href="#noticias" class="nav-link text-white/90 hover:text-white block px-4 py-3 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Notícias</a>
+          <a href="#contato" class="nav-link text-white/90 hover:text-white block px-4 py-3 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Contato</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================== -->
+  <!--       HERO / DESTAQUE          -->
+  <!-- ============================== -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-marinho-800">
+    <!-- Background decorativo -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-marinho-700/40 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-verde-600/15 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-marinho-600/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <!-- Texto -->
+        <div class="text-center lg:text-left">
+          <div class="hero-animate inline-flex items-center gap-2 bg-verde-500/20 border border-verde-400/30 text-verde-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <i class="fa-solid fa-check-circle"></i>
+            Candidato a Deputado Federal 2026
+          </div>
+          <h1 class="hero-animate font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight" style="text-wrap: balance;">
+            Por um Brasil
+            <span class="text-verde-400">mais justo</span>
+            e transparente
+          </h1>
+          <p class="hero-animate-delay text-lg sm:text-xl text-marinho-200 mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Compromisso real com a saúde, educação e segurança do nosso povo. Juntos, vamos construir o futuro que merecemos.
+          </p>
+          <div class="hero-animate-delay flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
+            <a href="#propostas" class="inline-flex items-center justify-center gap-2 bg-verde-500 hover:bg-verde-600 text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 shadow-lg shadow-verde-500/25 hover:shadow-verde-500/40">
+              <i class="fa-solid fa-file-lines"></i>
+              Conheça as Propostas
+            </a>
+            <a href="#sobre" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-xl text-base font-semibold backdrop-blur transition-all duration-300">
+              <i class="fa-solid fa-user"></i>
+              Sobre o Candidato
+            </a>
+          </div>
+        </div>
+
+        <!-- Foto -->
+        <div class="hero-photo-animate flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="photo-ring w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-verde-400/50 p-2">
+              <img
+                src="/images/candidato-hero.jpg"
+                alt="Deputado Federal Ricardo Monteiro"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <!-- Badge flutuante -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl px-6 py-3 flex items-center gap-3" style="animation: float 3s ease-in-out infinite;">
+              <div class="w-10 h-10 bg-verde-500 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-award text-white"></i>
+              </div>
+              <div>
+                <p class="text-marinho-800 font-bold text-sm">Ficha Limpa</p>
+                <p class="text-gray-500 text-xs">Compromisso com a ética</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seta de scroll -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+      <i class="fa-solid fa-chevron-down text-2xl"></i>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!--    PAINEL DE TRANSPARÊNCIA     -->
+  <!-- ============================== -->
+  <section id="transparencia" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="inline-flex items-center gap-2 bg-marinho-50 text-marinho-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <i class="fa-solid fa-chart-simple"></i>
+          Dados Públicos
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-marinho-800 mt-4" style="text-wrap: balance;">
+          Transparência em Números
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+          Prestação de contas clara e acessível. Cada centavo do dinheiro público é monitorado.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="scroll-reveal bg-gradient-to-br from-marinho-50 to-white border border-marinho-100 rounded-2xl p-8 text-center card-hover">
+          <div class="w-16 h-16 bg-marinho-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-piggy-bank text-white text-2xl"></i>
+          </div>
+          <p class="stat-number text-4xl lg:text-5xl font-bold text-marinho-700" data-target="847" data-prefix="R$ " data-suffix=" mil">R$ 0</p>
+          <p class="text-gray-500 mt-2 text-sm font-medium">Economia de Verba Parlamentar</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="scroll-reveal bg-gradient-to-br from-verde-50 to-white border border-verde-100 rounded-2xl p-8 text-center card-hover" style="transition-delay: 0.1s;">
+          <div class="w-16 h-16 bg-verde-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-calendar-check text-white text-2xl"></i>
+          </div>
+          <p class="stat-number text-4xl lg:text-5xl font-bold text-verde-600" data-target="98" data-suffix="%">0%</p>
+          <p class="text-gray-500 mt-2 text-sm font-medium">Presença em Plenário</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="scroll-reveal bg-gradient-to-br from-marinho-50 to-white border border-marinho-100 rounded-2xl p-8 text-center card-hover" style="transition-delay: 0.2s;">
+          <div class="w-16 h-16 bg-marinho-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-file-signature text-white text-2xl"></i>
+          </div>
+          <p class="stat-number text-4xl lg:text-5xl font-bold text-marinho-700" data-target="127">0</p>
+          <p class="text-gray-500 mt-2 text-sm font-medium">Projetos de Lei Apresentados</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="scroll-reveal bg-gradient-to-br from-verde-50 to-white border border-verde-100 rounded-2xl p-8 text-center card-hover" style="transition-delay: 0.3s;">
+          <div class="w-16 h-16 bg-verde-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-shield-halved text-white text-2xl"></i>
+          </div>
+          <p class="stat-number text-4xl lg:text-5xl font-bold text-verde-600" data-target="100" data-suffix="%">0%</p>
+          <p class="text-gray-500 mt-2 text-sm font-medium">Ficha Limpa Verificada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!--          PROPOSTAS             -->
+  <!-- ============================== -->
+  <section id="propostas" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="inline-flex items-center gap-2 bg-verde-50 text-verde-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <i class="fa-solid fa-bullseye"></i>
+          Nossas Bandeiras
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-marinho-800 mt-4" style="text-wrap: balance;">
+          Propostas para o Brasil
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+          Planos concretos e realizáveis para transformar a vida de milhões de brasileiros.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Saúde -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+          <div class="h-2 bg-gradient-to-r from-verde-400 to-verde-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-verde-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-heart-pulse text-verde-500 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Saúde de Qualidade</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">Investimento real na saúde pública para garantir atendimento digno a todos os brasileiros.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Ampliação do SUS com mais UPAs e postos 24h
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Telemedicina para regiões rurais e remotas
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Valorização dos profissionais de saúde
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Educação -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.15s;">
+          <div class="h-2 bg-gradient-to-r from-marinho-400 to-marinho-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-marinho-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-graduation-cap text-marinho-600 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Educação Transformadora</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">A educação é a base para um país justo. Nosso compromisso é garantir acesso e qualidade.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Escola integral com tecnologia de ponta
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Bolsas de estudo para jovens de baixa renda
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Capacitação digital para professores
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Segurança -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.3s;">
+          <div class="h-2 bg-gradient-to-r from-verde-400 to-verde-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-verde-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-shield-halved text-verde-500 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Segurança Cidadã</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">Segurança inteligente que protege o cidadão e combate a criminalidade na raiz.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Policiamento comunitário e preventivo
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Tecnologia para monitoramento urbano
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Programas de reinserção social
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Meio Ambiente -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+          <div class="h-2 bg-gradient-to-r from-marinho-400 to-marinho-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-marinho-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-leaf text-marinho-600 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Meio Ambiente</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">Desenvolvimento sustentável que respeita nossa biodiversidade e o futuro das próximas gerações.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Combate ao desmatamento ilegal
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Incentivo à energia solar e eólica
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Saneamento básico universal
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inclusão Digital -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.15s;">
+          <div class="h-2 bg-gradient-to-r from-verde-400 to-verde-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-verde-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-wifi text-verde-500 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Inclusão Digital</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">Conectar o Brasil inteiro à internet é democratizar oportunidades e conhecimento.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Internet gratuita em áreas periféricas
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Cursos de programação para jovens
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-verde-500 mt-0.5 flex-shrink-0"></i>
+                Governo digital acessível a todos
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Emprego -->
+        <div class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.3s;">
+          <div class="h-2 bg-gradient-to-r from-marinho-400 to-marinho-600"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 bg-marinho-50 rounded-xl flex items-center justify-center mb-6">
+              <i class="fa-solid fa-briefcase text-marinho-600 text-2xl"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-marinho-800 mb-3">Emprego e Renda</h3>
+            <p class="text-gray-500 leading-relaxed mb-5">Gerar empregos dignos e fomentar o empreendedorismo para fortalecer a economia brasileira.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Microcrédito para empreendedores
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Desburocratização para pequenas empresas
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <i class="fa-solid fa-check text-marinho-500 mt-0.5 flex-shrink-0"></i>
+                Qualificação profissional gratuita
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!--       SOBRE O DEPUTADO         -->
+  <!-- ============================== -->
+  <section id="sobre" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Foto -->
+        <div class="scroll-reveal-left relative">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="/images/candidato-sobre.jpg"
+              alt="Ricardo Monteiro visitando comunidade"
+              class="w-full h-[500px] object-cover"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-marinho-900/80 to-transparent p-8">
+              <p class="text-white font-serif text-xl font-bold">Sempre perto do povo</p>
+              <p class="text-white/70 text-sm mt-1">Mais de 200 comunidades visitadas</p>
+            </div>
+          </div>
+          <!-- Decorativo -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-verde-100 rounded-2xl -z-10"></div>
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-marinho-100 rounded-2xl -z-10"></div>
+        </div>
+
+        <!-- Texto -->
+        <div class="scroll-reveal-right">
+          <span class="inline-flex items-center gap-2 bg-marinho-50 text-marinho-600 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <i class="fa-solid fa-user-tie"></i>
+            Conheça o Candidato
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-marinho-800 mt-4" style="text-wrap: balance;">
+            Uma trajetória de luta pelo povo brasileiro
+          </h2>
+          <p class="text-gray-500 mt-6 text-lg leading-relaxed">
+            Ricardo Monteiro é advogado, professor universitário e líder comunitário com mais de 25 anos dedicados ao serviço público e à defesa dos direitos da população.
+          </p>
+
+          <!-- Linha do tempo -->
+          <div class="mt-10 space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-marinho-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-graduation-cap text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-marinho-800">Formação Acadêmica</h4>
+                <p class="text-gray-500 text-sm mt-1">Doutor em Direito Constitucional pela USP. Professor titular de Políticas Públicas na UnB.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-verde-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-landmark text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-marinho-800">Carreira Política</h4>
+                <p class="text-gray-500 text-sm mt-1">Vereador por dois mandatos. Secretário Municipal de Educação. Autor de 127 projetos de lei.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-marinho-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-award text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-marinho-800">Reconhecimento</h4>
+                <p class="text-gray-500 text-sm mt-1">Prêmio Destaque em Transparência Pública (2022). Nota máxima no ranking de parlamentares ativos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!--       FEED DE NOTÍCIAS         -->
+  <!-- ============================== -->
+  <section id="noticias" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="inline-flex items-center gap-2 bg-marinho-50 text-marinho-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <i class="fa-solid fa-newspaper"></i>
+          Últimas Notícias
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-marinho-800 mt-4" style="text-wrap: balance;">
+          Acompanhe nosso trabalho
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+          Fique por dentro das últimas ações, projetos e conquistas do mandato.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Notícia 1 -->
+        <article class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+          <div class="news-img-wrapper h-52">
+            <img
+              src="/images/noticia-1.jpg"
+              alt="Hospital público moderno"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="bg-verde-50 text-verde-600 text-xs font-bold px-3 py-1 rounded-full">Saúde</span>
+              <span class="text-gray-400 text-xs">10 de Fevereiro, 2026</span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-marinho-800 leading-snug">Projeto de Lei amplia horário de funcionamento das UPAs em todo o país</h3>
+            <p class="text-gray-500 text-sm mt-3 leading-relaxed">Iniciativa prevê atendimento 24h em todas as Unidades de Pronto Atendimento com equipe médica completa.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-marinho-600 font-semibold text-sm mt-4 hover:text-verde-500 transition-colors">
+              Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Notícia 2 -->
+        <article class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.15s;">
+          <div class="news-img-wrapper h-52">
+            <img
+              src="/images/noticia-2.jpg"
+              alt="Sala de aula moderna com tecnologia"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="bg-marinho-50 text-marinho-600 text-xs font-bold px-3 py-1 rounded-full">Educação</span>
+              <span class="text-gray-400 text-xs">05 de Fevereiro, 2026</span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-marinho-800 leading-snug">Programa de tablets para alunos da rede pública beneficia 500 mil estudantes</h3>
+            <p class="text-gray-500 text-sm mt-3 leading-relaxed">Parceria entre governo federal e empresas de tecnologia distribui dispositivos com conteúdo educacional.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-marinho-600 font-semibold text-sm mt-4 hover:text-verde-500 transition-colors">
+              Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Notícia 3 -->
+        <article class="scroll-reveal card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style="transition-delay: 0.3s;">
+          <div class="news-img-wrapper h-52">
+            <img
+              src="/images/noticia-3.jpg"
+              alt="Congresso Nacional de Brasília"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="bg-verde-50 text-verde-600 text-xs font-bold px-3 py-1 rounded-full">Congresso</span>
+              <span class="text-gray-400 text-xs">28 de Janeiro, 2026</span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-marinho-800 leading-snug">Ricardo Monteiro lidera frente parlamentar pela transparência digital</h3>
+            <p class="text-gray-500 text-sm mt-3 leading-relaxed">Nova frente reúne 45 deputados comprometidos com a digitalização e abertura de dados públicos.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-marinho-600 font-semibold text-sm mt-4 hover:text-verde-500 transition-colors">
+              Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!--          RODAPÉ                -->
+  <!-- ============================== -->
+  <footer id="contato" class="bg-marinho-900 text-white pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Sobre -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-verde-500 rounded-lg flex items-center justify-center text-white font-serif font-bold text-lg">
+              RM
+            </div>
+            <span class="font-bold text-lg">Ricardo Monteiro</span>
+          </div>
+          <p class="text-marinho-300 text-sm leading-relaxed">
+            Deputado Federal comprometido com a transparência, a justiça social e o desenvolvimento sustentável do Brasil.
+          </p>
+          <div class="flex items-center gap-4 mt-6">
+            <a href="#" class="w-10 h-10 bg-marinho-800 hover:bg-verde-500 rounded-lg flex items-center justify-center transition-colors duration-300" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-marinho-800 hover:bg-verde-500 rounded-lg flex items-center justify-center transition-colors duration-300" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-marinho-800 hover:bg-verde-500 rounded-lg flex items-center justify-center transition-colors duration-300" aria-label="Twitter / X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-marinho-800 hover:bg-verde-500 rounded-lg flex items-center justify-center transition-colors duration-300" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-widest text-marinho-400 mb-6">Navegação</h4>
+          <ul class="space-y-3">
+            <li><a href="#inicio" class="text-marinho-300 hover:text-verde-400 text-sm transition-colors">Início</a></li>
+            <li><a href="#transparencia" class="text-marinho-300 hover:text-verde-400 text-sm transition-colors">Transparência</a></li>
+            <li><a href="#propostas" class="text-marinho-300 hover:text-verde-400 text-sm transition-colors">Propostas</a></li>
+            <li><a href="#sobre" class="text-marinho-300 hover:text-verde-400 text-sm transition-colors">Sobre</a></li>
+            <li><a href="#noticias" class="text-marinho-300 hover:text-verde-400 text-sm transition-colors">Notícias</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-widest text-marinho-400 mb-6">Contato</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-sm text-marinho-300">
+              <i class="fa-solid fa-location-dot text-verde-400 mt-0.5"></i>
+              Câmara dos Deputados, Anexo IV<br />Gabinete 420 - Brasília/DF
+            </li>
+            <li class="flex items-center gap-3 text-sm text-marinho-300">
+              <i class="fa-solid fa-phone text-verde-400"></i>
+              (61) 3215-5420
+            </li>
+            <li class="flex items-center gap-3 text-sm text-marinho-300">
+              <i class="fa-solid fa-envelope text-verde-400"></i>
+              contato@ricardomonteiro.com.br
+            </li>
+          </ul>
+        </div>
+
+        <!-- Formulário -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-widest text-marinho-400 mb-6">Envie uma Mensagem</h4>
+          <form id="contact-form" class="space-y-3">
+            <input
+              type="text"
+              placeholder="Seu nome"
+              required
+              class="w-full bg-marinho-800 border border-marinho-700 rounded-lg px-4 py-3 text-sm text-white placeholder-marinho-500 focus:outline-none focus:border-verde-400 focus:ring-1 focus:ring-verde-400 transition-colors"
+            />
+            <input
+              type="email"
+              placeholder="Seu e-mail"
+              required
+              class="w-full bg-marinho-800 border border-marinho-700 rounded-lg px-4 py-3 text-sm text-white placeholder-marinho-500 focus:outline-none focus:border-verde-400 focus:ring-1 focus:ring-verde-400 transition-colors"
+            />
+            <textarea
+              placeholder="Sua mensagem"
+              rows="3"
+              required
+              class="w-full bg-marinho-800 border border-marinho-700 rounded-lg px-4 py-3 text-sm text-white placeholder-marinho-500 focus:outline-none focus:border-verde-400 focus:ring-1 focus:ring-verde-400 transition-colors resize-none"
+            ></textarea>
+            <button
+              type="submit"
+              class="w-full bg-verde-500 hover:bg-verde-600 text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+              Enviar Mensagem
+            </button>
+          </form>
+          <p id="form-success" class="hidden text-verde-400 text-sm mt-3 flex items-center gap-2">
+            <i class="fa-solid fa-check-circle"></i> Mensagem enviada com sucesso!
+          </p>
+        </div>
+      </div>
+
+      <!-- Linha divisória e copyright -->
+      <div class="border-t border-marinho-800 pt-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-marinho-500 text-sm text-center md:text-left">
+            &copy; 2026 Ricardo Monteiro - Deputado Federal. Todos os direitos reservados.
+          </p>
+          <p class="text-marinho-600 text-xs">
+            Feito com <i class="fa-solid fa-heart text-verde-500"></i> para o Brasil
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== -->
+  <!--         JAVASCRIPT             -->
+  <!-- ============================== -->
+  <script>
+    // =======================
+    // Navbar: efeito ao rolar
+    // =======================
+    const navbar = document.getElementById('navbar');
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 80) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // =======================
+    // Menu mobile
+    // =======================
+    let menuAberto = false;
+    mobileBtn.addEventListener('click', function () {
+      menuAberto = !menuAberto;
+      mobileMenu.classList.toggle('open', menuAberto);
+      mobileBtn.innerHTML = menuAberto
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Fechar menu ao clicar em link
+    document.querySelectorAll('#mobile-menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menuAberto = false;
+        mobileMenu.classList.remove('open');
+        mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    // =======================
+    // Scroll Reveal
+    // =======================
+    const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.15
+    };
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    // =======================
+    // Contadores animados
+    // =======================
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    let contadoresIniciados = false;
+
+    function animarContador(elemento) {
+      const alvo = parseInt(elemento.getAttribute('data-target'));
+      const prefixo = elemento.getAttribute('data-prefix') || '';
+      const sufixo = elemento.getAttribute('data-suffix') || '';
+      const duracao = 2000;
+      const inicio = performance.now();
+
+      function atualizar(tempoAtual) {
+        const progresso = Math.min((tempoAtual - inicio) / duracao, 1);
+        // Easing: desacelera no final
+        const valorEase = 1 - Math.pow(1 - progresso, 3);
+        const valorAtual = Math.floor(valorEase * alvo);
+        elemento.textContent = prefixo + valorAtual.toLocaleString('pt-BR') + sufixo;
+
+        if (progresso < 1) {
+          requestAnimationFrame(atualizar);
+        } else {
+          elemento.textContent = prefixo + alvo.toLocaleString('pt-BR') + sufixo;
+        }
+      }
+
+      requestAnimationFrame(atualizar);
+    }
+
+    const statsSection = document.getElementById('transparencia');
+    const statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !contadoresIniciados) {
+          contadoresIniciados = true;
+          statNumbers.forEach(function (el) {
+            animarContador(el);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+
+    // =======================
+    // Formulário de contato
+    // =======================
+    const form = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Simula envio
+      const botao = form.querySelector('button[type="submit"]');
+      botao.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+      botao.disabled = true;
+
+      setTimeout(function () {
+        form.reset();
+        formSuccess.classList.remove('hidden');
+        botao.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar Mensagem';
+        botao.disabled = false;
+
+        setTimeout(function () {
+          formSuccess.classList.add('hidden');
+        }, 5000);
+      }, 1500);
+    });
+
+    // =======================
+    // Active nav link
+    // =======================
+    const secoes = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function () {
+      const scrollY = window.scrollY + 100;
+      secoes.forEach(function (secao) {
+        const topo = secao.offsetTop;
+        const altura = secao.offsetHeight;
+        const id = secao.getAttribute('id');
+        const link = document.querySelector('nav a[href="#' + id + '"]');
+        if (link) {
+          if (scrollY >= topo && scrollY < topo + altura) {
+            link.style.fontWeight = '700';
+          } else {
+            link.style.fontWeight = '500';
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
